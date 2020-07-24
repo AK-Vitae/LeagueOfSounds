@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LeagueOfSounds
 //
-//  Created by Akshith Ramadugu on 7/24/20.
+//  Created by AK on 7/24/20.
 //  Copyright © 2020 AK-Vitae. All rights reserved.
 //
 
