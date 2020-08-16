@@ -65,27 +65,36 @@ enum Tag: String, Codable {
 }
 
 enum Version: String, Codable {
-    case the10151 = "10.15.1"
+    case the10151 = "10.16.1"
 }
 
 class FetchChampion: ObservableObject {
-    @Published var datas = [String()]
+    @ObservedObject var clientVersion = FetchVersion()
+    @Published var datas = [String()] {
+        didSet {
+            print("\(self.datas.count) champions logged in ChampionData")
+        }
+    }
     
     init() {
-        let url = URL(string: "https://ddragon.leagueoflegends.com/cdn/10.15.1/data/en_US/champion.json")!
+        print(clientVersion.version) // Prints nothing
+        var ver : String = "10.15.1"
+        var urlString : String {
+                return "https://ddragon.leagueoflegends.com/cdn/\(ver)/data/en_US/champion.json"
+        }
+//        var urlString : String {
+//                return "https://ddragon.leagueoflegends.com/cdn/\(clientVersion.version)/data/en_US/champion.json"
+//        }
+        print(urlString)
+        let url = URL(string: urlString)!
         URLSession.shared.dataTask(with: url) {(dataGappu, response, error) in
             do {
                 if let jsonData = dataGappu {
                     let decodedData = try JSONDecoder().decode(ChampionData.self, from: jsonData)
                     DispatchQueue.main.async {
                         let sortedData = decodedData.data.keys.sorted()
-                        self.datas = sortedData // Sorted data is of type Array<String>
-//                        print(sortedData[0])
-//                        print(type(of: sortedData))
-//                        print(sortedData.count)
-//                        for champ in sortedData {
-//                            print("\(champ)")
-//                        }
+                        self.datas = sortedData
+                        //print(self.version)
                     }
                 } else {
                     print("No data")
@@ -95,19 +104,20 @@ class FetchChampion: ObservableObject {
             }
         }.resume()
     }
+    
 }
 
 struct ChampionDataView: View {
     @ObservedObject var fetch = FetchChampion()
     var body: some View {
-            VStack(alignment: .leading, spacing: 10){
-                Text("Champion at first index: \(self.fetch.datas[0])")
-//                Text("\(self.fetch.datas[1])") // Index out of range
-                Text("Number of champions: \(self.fetch.datas.count)") // Shows 149
-                    .onAppear(perform: {print(self.fetch.datas.indices)
-                    print(self.fetch.datas.count) // Prints out 1
-                })
+        VStack(){
+            Spacer()
+            List(self.fetch.datas, id: \.self) { champ in
+                VStack(alignment: .leading) {
+                    Text("\(champ)")
+                }
             }
+        }
     }
 }
 

@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct ClientVersion: Codable, Identifiable {
-    var id = UUID()
+struct ClientVersion: Codable {
+   
     var patch: String
     
     enum CodingKeys: String, CodingKey {

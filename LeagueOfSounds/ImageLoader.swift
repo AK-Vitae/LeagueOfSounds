@@ -41,7 +41,9 @@ struct CView: View {
     @ObservedObject var championEImageLoader: ImageLoader = ImageLoader()
     @ObservedObject var championRImageLoader: ImageLoader = ImageLoader()
     @ObservedObject var fetch : FetchVersion = FetchVersion()
+    @State var didLoad = 0
     
+    //Make a function that returns a modified string that takes in the version
     var urlStringChampion : String {
         get {
             return "https://ddragon.leagueoflegends.com/cdn/\(self.fetch.version)/img/champion/Aatrox.png"
@@ -72,15 +74,14 @@ struct CView: View {
             return "https://ddragon.leagueoflegends.com/cdn/10.15.1/img/champion/Aatrox.png"
         }
     }
+    
+    func loadSound() {
+        didLoad = 1
+    }
+    
     var body: some View {
         VStack(alignment: .center) {
             if (championImageLoader.image != nil) {
-                
-                //                Text(self.fetch.version)
-                //                    .onTapGesture {
-                //                        print(self.urlString)
-                //                        UIApplication.shared.open(URL(string: self.urlString)!)
-                //                }
                 Text("Patch: \(self.fetch.version)").padding()
                 //                GeometryReader { geometry in
                 Image(uiImage: self.championImageLoader.image!)
@@ -89,31 +90,39 @@ struct CView: View {
                     .frame(maxWidth: 200, maxHeight: 200)
                     .padding()
                     .onTapGesture {
-                        print(self.urlStringChampion)
+                        //print(self.urlStringChampion)
                         self.championImageLoader.downloadImage(url: URL(string: self.urlStringChampion)!)
                         self.championQImageLoader.downloadImage(url: URL(string: self.urlStringChampionQ)!)
                         self.championWImageLoader.downloadImage(url: URL(string: self.urlStringChampionW)!)
                         self.championEImageLoader.downloadImage(url: URL(string: self.urlStringChampionE)!)
                         self.championRImageLoader.downloadImage(url: URL(string: self.urlStringChampionR)!)
+                        self.loadSound()
+                        if self.didLoad == 1{
+                            playSound()
+                        }
                 }
                 HStack{
                     Image(uiImage: self.championQImageLoader.image!)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 100, maxHeight: 100)
+                        .cornerRadius(12)
                     Image(uiImage: self.championWImageLoader.image!)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 100, maxHeight: 100)
+                        .cornerRadius(12)
                     Image(uiImage: self.championEImageLoader.image!)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 100, maxHeight: 100)
+                        .cornerRadius(12)
                     Image(uiImage: self.championRImageLoader.image!)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 100, maxHeight: 100)
-                        
+                        .cornerRadius(12)
+                    
                 }
                 .padding()
                 //                }
@@ -121,13 +130,8 @@ struct CView: View {
         }
         .cornerRadius(10)
         .shadow(radius: 20)
-        .onAppear(perform: { self.championImageLoader.downloadImage(url: URL(string: self.urlStringChampion)!) })
-        //            if let url = data {
-        //self.imageLoader.downloadImage(url: URL(string: self.urlS)!)
-        //                print(self.fetch.version)
-        //                print(self.fetch.urlString)
-        //                print(self.urlString)
-        //            }
+        .onAppear(perform: { self.championImageLoader.downloadImage(url: URL(string: self.urlStringChampion)!)
+        })
     }
 }
 
