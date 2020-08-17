@@ -9,7 +9,8 @@
 import Foundation
 
 struct ClientVersion: Codable {
-   
+    
+    //Need to clean up using the appbrewery guidance
     var patch: String
     
     enum CodingKeys: String, CodingKey {
