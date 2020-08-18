@@ -23,6 +23,7 @@
 		4160E1C024CF220D005853AF /* aatroxTest.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4160E1BF24CF220D005853AF /* aatroxTest.wav */; };
 		4160E1C424CF4493005853AF /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160E1C324CF4493005853AF /* ChampionData.swift */; };
 		4160E1C824D0A6B2005853AF /* Gappu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160E1C724D0A6B2005853AF /* Gappu.swift */; };
+		41D199A024EC171800D8C69A /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1999F24EC171800D8C69A /* VersionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4160E1BF24CF220D005853AF /* aatroxTest.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = aatroxTest.wav; path = LeagueOfSounds/Assets.xcassets/aatroxTest.dataset/aatroxTest.wav; sourceTree = SOURCE_ROOT; };
 		4160E1C324CF4493005853AF /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
 		4160E1C724D0A6B2005853AF /* Gappu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gappu.swift; sourceTree = "<group>"; };
+		41D1999F24EC171800D8C69A /* VersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				4160E1A924CBF356005853AF /* Models */,
 				4160E18324CB4FBC005853AF /* AppDelegate.swift */,
 				4160E18524CB4FBC005853AF /* SceneDelegate.swift */,
+				41D1999F24EC171800D8C69A /* VersionManager.swift */,
 				4160E1A524CBEE42005853AF /* Webservice.swift */,
 				4160E1A724CBEF6D005853AF /* WebserviceView.swift */,
 				4160E18724CB4FBC005853AF /* ContentView.swift */,
@@ -198,6 +201,7 @@
 				4160E1B324CD1F0D005853AF /* ImageLoader.swift in Sources */,
 				4160E1A824CBEF6D005853AF /* WebserviceView.swift in Sources */,
 				4160E18424CB4FBC005853AF /* AppDelegate.swift in Sources */,
+				41D199A024EC171800D8C69A /* VersionManager.swift in Sources */,
 				4160E1B524CE8AD6005853AF /* SoundPlayer.swift in Sources */,
 				4160E1A624CBEE42005853AF /* Webservice.swift in Sources */,
 				4160E1B124CCE820005853AF /* VersionView.swift in Sources */,
