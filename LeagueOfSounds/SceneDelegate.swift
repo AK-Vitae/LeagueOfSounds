@@ -23,9 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let contentView = CView()
 //                let contentView = ContentView()
 //        let contentView = ChampionDataView()
-        let contentView = ClientVersionView()
-//        let contentView = VersionView()
-//        let contentView = WebserviceView()
+//        let contentView = ClientVersionView()
+        let contentView = VersionView()
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
