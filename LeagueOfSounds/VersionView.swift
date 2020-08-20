@@ -17,6 +17,10 @@ class FetchVersion: ObservableObject {
     }
     
     init() {
+        loadVersion()
+    }
+    
+    func loadVersion() {
         guard let url = URL(string: "https://ddragon.leagueoflegends.com/realms/na.json") else {
             fatalError("Invalid URL")
         }
