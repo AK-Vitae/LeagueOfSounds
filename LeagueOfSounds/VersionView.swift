@@ -43,7 +43,7 @@ class FetchVersion: ObservableObject {
 
 
 struct VersionView: View {
-    @ObservedObject var fetch = FetchVersion()
+    @EnvironmentObject var fetch : FetchVersion
     
     var body: some View {
         VStack{

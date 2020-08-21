@@ -12,6 +12,7 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var fetch = FetchVersion()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -22,9 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
 //        let contentView = CView()
 //                let contentView = ContentView()
-//        let contentView = ChampionDataView()
+        let contentView = ChampionDataView().environmentObject(fetch)
 //        let contentView = ClientVersionView()
-        let contentView = VersionView()
+//        let contentView = VersionView().environmentObject(fetch)
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

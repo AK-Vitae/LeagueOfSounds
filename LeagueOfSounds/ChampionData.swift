@@ -65,10 +65,11 @@ enum Tag: String, Codable {
 }
 
 enum Version: String, Codable {
-    case the10151 = "10.16.1"
+    case the10151 = "patch"
 }
 
 class FetchChampion: ObservableObject {
+    @EnvironmentObject var fetch : FetchVersion
     @ObservedObject var clientVersion = FetchVersion()
     @Published var datas = [String()] {
         didSet {
@@ -77,8 +78,10 @@ class FetchChampion: ObservableObject {
     }
     
     init() {
+        let test = FetchVersion()
+        print(test.version)
         print(clientVersion.version) // Prints nothing
-        var ver : String = "10.15.1"
+        var ver : String = "10.16.1"
         var urlString : String {
                 return "https://ddragon.leagueoflegends.com/cdn/\(ver)/data/en_US/champion.json"
         }
