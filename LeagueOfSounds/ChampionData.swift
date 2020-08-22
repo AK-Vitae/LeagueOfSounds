@@ -10,7 +10,9 @@
 import Foundation
 import SwiftUI
 
-// MARK: - ChampionData
+import Foundation
+
+// MARK: - ClientVersion
 struct ChampionData: Codable {
     let type: TypeEnum
     let format: String
@@ -24,14 +26,14 @@ struct Datum: Codable {
     let id, key, name, title: String
     let blurb: String
     let info: Info
-    let image: Picture
+    let image: Image
     let tags: [Tag]
     let partype: String
     let stats: [String: Double]
 }
 
-// MARK: - Picture
-struct Picture: Codable {
+// MARK: - Image
+struct Image: Codable {
     let full: String
     let sprite: Sprite
     let group: TypeEnum
@@ -65,11 +67,10 @@ enum Tag: String, Codable {
 }
 
 enum Version: String, Codable {
-    case the10151 = "patch"
+    case the10161 = "10.16.1"
 }
 
 class FetchChampion: ObservableObject {
-    @EnvironmentObject var fetch : FetchVersion
     @ObservedObject var clientVersion = FetchVersion()
     @Published var datas = [String()] {
         didSet {
@@ -77,27 +78,25 @@ class FetchChampion: ObservableObject {
         }
     }
     
-    init() {
-        let test = FetchVersion()
-        print(test.version)
-        print(clientVersion.version) // Prints nothing
-        var ver : String = "10.16.1"
+    init(client: FetchVersion) {
+        loadData(version: client.version)
+    }
+    
+    func loadData(version: String) {
         var urlString : String {
-                return "https://ddragon.leagueoflegends.com/cdn/\(ver)/data/en_US/champion.json"
+            return "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
         }
-//        var urlString : String {
-//                return "https://ddragon.leagueoflegends.com/cdn/\(clientVersion.version)/data/en_US/champion.json"
-//        }
         print(urlString)
-        let url = URL(string: urlString)!
-        URLSession.shared.dataTask(with: url) {(dataGappu, response, error) in
+        guard let url = URL(string: urlString) else {
+            fatalError("Invalid URL")
+        }
+        URLSession.shared.dataTask(with: url) {(data, response, error) in
             do {
-                if let jsonData = dataGappu {
-                    let decodedData = try JSONDecoder().decode(ChampionData.self, from: jsonData)
+                if let todoData = data {
+                    let decodedData = try JSONDecoder().decode(ChampionData.self, from: todoData)
                     DispatchQueue.main.async {
                         let sortedData = decodedData.data.keys.sorted()
                         self.datas = sortedData
-                        //print(self.version)
                     }
                 } else {
                     print("No data")
@@ -107,11 +106,32 @@ class FetchChampion: ObservableObject {
             }
         }.resume()
     }
-    
+}
+
+struct MyCoolView: View {
+    @EnvironmentObject var userData: UserData
+
+    var body: some View {
+        MyCoolInternalView(ViewObject(id: self.userData.UID))
+    }
+}
+
+struct MyCoolInternalView: View {
+    @EnvironmentObject var userData: UserData
+    @ObservedObject var viewObject: ViewObject
+
+    init(_ viewObject: ViewObject) {
+        self.viewObject = viewObject
+    }
+
+    var body: some View {
+            Text("\(self.viewObject.myCoolProperty)")
+    }
 }
 
 struct ChampionDataView: View {
-    @ObservedObject var fetch = FetchChampion()
+    @EnvironmentObject var test: FetchVersion
+    @ObservedObject var fetch = FetchChampion(client: test.version)
     var body: some View {
         VStack(){
             Spacer()
