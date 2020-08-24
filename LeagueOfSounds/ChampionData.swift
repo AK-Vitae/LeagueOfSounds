@@ -72,11 +72,12 @@ enum Version: String, Codable {
 
 class FetchChampion: ObservableObject {
     @ObservedObject var clientVersion = FetchVersion()
-    @Published var datas = [String()] {
-        didSet {
-            print("\(self.datas.count) champions logged in ChampionData")
-        }
-    }
+    @Published var datas = [String()]
+//        {
+//        didSet {
+//            print("\(self.datas.count) champions logged in ChampionData")
+//        }
+//    }
     
     init(client: FetchVersion) {
         loadData(version: client.version)
@@ -86,7 +87,6 @@ class FetchChampion: ObservableObject {
         var urlString : String {
             return "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
         }
-        print(urlString)
         guard let url = URL(string: urlString) else {
             fatalError("Invalid URL")
         }
@@ -108,34 +108,24 @@ class FetchChampion: ObservableObject {
     }
 }
 
-struct MyCoolView: View {
-    @EnvironmentObject var userData: UserData
-
-    var body: some View {
-        MyCoolInternalView(ViewObject(id: self.userData.UID))
-    }
-}
-
-struct MyCoolInternalView: View {
-    @EnvironmentObject var userData: UserData
-    @ObservedObject var viewObject: ViewObject
-
-    init(_ viewObject: ViewObject) {
-        self.viewObject = viewObject
-    }
-
-    var body: some View {
-            Text("\(self.viewObject.myCoolProperty)")
-    }
-}
-
 struct ChampionDataView: View {
-    @EnvironmentObject var test: FetchVersion
-    @ObservedObject var fetch = FetchChampion(client: test.version)
+    @EnvironmentObject var version: FetchVersion
+    
+    var body: some View {
+        ChampionDataInternalView(FetchChampion(client: version))
+    }
+}
+
+struct ChampionDataInternalView: View {
+    @EnvironmentObject var version : FetchVersion
+    @ObservedObject var champion : FetchChampion
+    init(_ champion: FetchChampion) {
+        self.champion = champion
+    }
     var body: some View {
         VStack(){
             Spacer()
-            List(self.fetch.datas, id: \.self) { champ in
+            List(self.champion.datas, id: \.self) { champ in
                 VStack(alignment: .leading) {
                     Text("\(champ)")
                 }

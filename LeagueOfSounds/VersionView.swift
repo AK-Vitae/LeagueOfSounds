@@ -10,11 +10,12 @@ import SwiftUI
 
 
 class FetchVersion: ObservableObject {
-    @Published var version = String() {
-        didSet {
-            print("\(self.version) created in VersionView")
-        }
-    }
+    @Published var version = String()
+//        {
+//        didSet {
+//            print("\(self.version) created in VersionView")
+//        }
+//    }
     
     init() {
         loadVersion()
