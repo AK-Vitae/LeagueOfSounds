@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		4160E1BD24CF2084005853AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4160E1BC24CF2084005853AF /* Assets.xcassets */; };
 		4160E1C024CF220D005853AF /* aatroxTest.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4160E1BF24CF220D005853AF /* aatroxTest.wav */; };
 		4160E1C424CF4493005853AF /* ChampionDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4160E1C324CF4493005853AF /* ChampionDataView.swift */; };
+		41AF315D24F6154C00782A7B /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 41AF315C24F6154C00782A7B /* FetchImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AF315D24F6154C00782A7B /* FetchImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = LeagueOfSounds;
+			packageProductDependencies = (
+				41AF315C24F6154C00782A7B /* FetchImage */,
+			);
 			productName = LeagueOfSounds;
 			productReference = 4160E18024CB4FBC005853AF /* LeagueOfSounds.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +178,9 @@
 				Base,
 			);
 			mainGroup = 4160E17724CB4FBC005853AF;
+			packageReferences = (
+				41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */,
+			);
 			productRefGroup = 4160E18124CB4FBC005853AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/FetchImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		41AF315C24F6154C00782A7B /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4160E17824CB4FBC005853AF /* Project object */;
 }

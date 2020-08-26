@@ -6,53 +6,34 @@
 //  Copyright © 2020 AK-Vitae. All rights reserved.
 //
 
+import Nuke
+import FetchImage
 import SwiftUI
-import Combine
-import Foundation
 
-class ImageLoader: ObservableObject {
-    var didChange = PassthroughSubject<Data, Never>()
-    var data = Data() {
-        didSet {
-            didChange.send(data)
+public struct ImageView: View {
+    @ObservedObject var image : FetchImage
+    public var body: some View {
+        ZStack {
+            Rectangle().fill(Color.gray)
+            image.view?
+                .resizable()
+                .aspectRatio(contentMode: .fill)
         }
-    }
-    
-    init(urlString : String) {
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self.data = data
-            }
-        }
-        task.resume()
+            
+            // (Optional) Animate image appearance
+            .animation(.default)
+            
+            // (Optional) Cancel and restart requests during scrolling
+            .onAppear(perform: image.fetch)
+            .onDisappear(perform: image.cancel)
     }
 }
 
-struct ImageView: View {
-    @ObservedObject var imageLoader : ImageLoader
-    @State var image : UIImage = UIImage()
-    
-    init(withURL url : String) {
-        imageLoader = ImageLoader(urlString : url)
-    }
-    
-    var body: some View {
-        Image(UIImage: image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width:100, height:100)
-            .onReceive(imageLoader.didChange) { data in
-                self.image = UIImage(data: data) ?? UIImage()
-        }
-    }
-}
-
-
-
-struct ImageLoader_Previews: PreviewProvider {
+struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(withURL: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Aatrox.png")
+        let url = URL(string: "https://cloud.githubusercontent.com/assets/1567433/9781817/ecb16e82-57a0-11e5-9b43-6b4f52659997.jpg")!
+        return ImageView(image: FetchImage(url: url))
+            .frame(width: 80, height: 80)
+            .clipped()
     }
 }
