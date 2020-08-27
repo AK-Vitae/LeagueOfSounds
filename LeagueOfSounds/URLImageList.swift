@@ -10,25 +10,25 @@ import SwiftUI
 import URLImage
 
 struct ListView : View {
-
+    
     let urls: [URL]
-
+    
     var body: some View {
         NavigationView {
             List(urls, id: \.self) { url in
                 NavigationLink(destination: DetailView(url: url)) {
                     HStack {
                         URLImage(url,
-                            delay: 0.25,
-                            processors: [ Resize(size: CGSize(width: 100.0, height: 100.0), scale: UIScreen.main.scale) ],
-                            content:  {
-                                $0.image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipped()
-                            })
-                                .frame(width: 100.0, height: 100.0)
-
+                                 delay: 0.10,
+                                 processors: [ Resize(size: CGSize(width: 100.0, height: 100.0), scale: UIScreen.main.scale) ],
+                                 content:  {
+                                    $0.image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .clipped()
+                        })
+                            .frame(width: 100.0, height: 100.0)
+                        
                         Text("\(url)")
                     }
                 }

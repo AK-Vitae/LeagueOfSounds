@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct ChampionDataView: View {
     @EnvironmentObject var version: FetchVersion
@@ -25,13 +26,24 @@ struct ChampionDataInternalView: View {
     }
     
     var body: some View {
-        VStack(){
-            Spacer()
+        NavigationView {
             List(self.champion.datas, id: \.self) { champ in
-                VStack(alignment: .leading) {
-                    Text("\(champ)")
+                NavigationLink(destination: DetailView(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/\(self.version.version)/img/champion/\(champ).png")!)) {
+                    HStack {
+                        URLImage(URL(string: "https://ddragon.leagueoflegends.com/cdn/\(self.version.version)/img/champion/\(champ).png")!,
+                                 delay: 0,
+                                 processors: [ Resize(size: CGSize(width: 100.0, height: 100.0), scale: UIScreen.main.scale) ],
+                                 content:  {
+                                    $0.image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .clipped()
+                        })
+                            .frame(width: 100.0, height: 100.0)
+                        Text("\(champ)")
+                    }
                 }
-            }
+            }.navigationBarTitle(Text("Champions"))
         }
     }
 }

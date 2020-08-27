@@ -27,12 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
 //        let contentView = CView()
 //        let contentView = ContentView()
-//        let contentView = ChampionDataView().environmentObject(fetch)
+        let contentView = ChampionDataView().environmentObject(fetch)
 //        let contentView = ClientVersionView()
 //        let contentView = VersionView().environmentObject(fetch)
 //        let contentView = ImageView()
 //        let contentView = DetailView(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Aatrox.png")!)
-        let contentView = ListView(urls: [URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Aatrox.png")!, URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Anivia.png")!, URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/AurelionSol.png")!])
+//        let contentView = ListView(urls: [URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Aatrox.png")!, URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/Anivia.png")!, URL(string: "https://ddragon.leagueoflegends.com/cdn/10.16.1/img/champion/AurelionSol.png")!])
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
