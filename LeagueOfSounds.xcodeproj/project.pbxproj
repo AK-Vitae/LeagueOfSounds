@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		415C005324F9467100872CAE /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 415C005224F9467100872CAE /* UIImageColors */; };
+		415C005524F94A4A00872CAE /* AbilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415C005424F94A4A00872CAE /* AbilitiesView.swift */; };
 		415E270424F4142B00A2C5D8 /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E270324F4142B00A2C5D8 /* ChampionData.swift */; };
 		415E270624F4148E00A2C5D8 /* FetchChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E270524F4148E00A2C5D8 /* FetchChampion.swift */; };
 		415E270824F415DC00A2C5D8 /* FetchVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E270724F415DC00A2C5D8 /* FetchVersion.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		415C005424F94A4A00872CAE /* AbilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilitiesView.swift; sourceTree = "<group>"; };
 		415E270324F4142B00A2C5D8 /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
 		415E270524F4148E00A2C5D8 /* FetchChampion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchChampion.swift; sourceTree = "<group>"; };
 		415E270724F415DC00A2C5D8 /* FetchVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchVersion.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415C005324F9467100872CAE /* UIImageColors in Frameworks */,
 				41AF316024F6AF6300782A7B /* URLImage in Frameworks */,
 				41AF315D24F6154C00782A7B /* FetchImage in Frameworks */,
 			);
@@ -95,13 +99,14 @@
 			children = (
 				4160E19124CB4FBD005853AF /* Info.plist */,
 				4160E1BA24CF202F005853AF /* placeholder.png */,
+				415C005424F94A4A00872CAE /* AbilitiesView.swift */,
 				4160E18324CB4FBC005853AF /* AppDelegate.swift */,
 				4160E1C324CF4493005853AF /* ChampionDataView.swift */,
 				4160E18724CB4FBC005853AF /* ContentView.swift */,
+				41AF316124F6AF9700782A7B /* DetailView.swift */,
 				4160E1B224CD1F0D005853AF /* ImageLoader.swift */,
 				4160E18524CB4FBC005853AF /* SceneDelegate.swift */,
 				41AF316324F6B22200782A7B /* URLImageList.swift */,
-				41AF316124F6AF9700782A7B /* DetailView.swift */,
 				4160E1B024CCE820005853AF /* VersionView.swift */,
 				4160E1BC24CF2084005853AF /* Assets.xcassets */,
 				4160E18E24CB4FBD005853AF /* LaunchScreen.storyboard */,
@@ -158,6 +163,7 @@
 			packageProductDependencies = (
 				41AF315C24F6154C00782A7B /* FetchImage */,
 				41AF315F24F6AF6300782A7B /* URLImage */,
+				415C005224F9467100872CAE /* UIImageColors */,
 			);
 			productName = LeagueOfSounds;
 			productReference = 4160E18024CB4FBC005853AF /* LeagueOfSounds.app */;
@@ -190,6 +196,7 @@
 			packageReferences = (
 				41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */,
 				41AF315E24F6AF6300782A7B /* XCRemoteSwiftPackageReference "url-image" */,
+				415C005124F9467100872CAE /* XCRemoteSwiftPackageReference "UIImageColors" */,
 			);
 			productRefGroup = 4160E18124CB4FBC005853AF /* Products */;
 			projectDirPath = "";
@@ -229,6 +236,7 @@
 				4160E1B524CE8AD6005853AF /* SoundPlayer.swift in Sources */,
 				4160E1B124CCE820005853AF /* VersionView.swift in Sources */,
 				415E270424F4142B00A2C5D8 /* ChampionData.swift in Sources */,
+				415C005524F94A4A00872CAE /* AbilitiesView.swift in Sources */,
 				4160E18624CB4FBC005853AF /* SceneDelegate.swift in Sources */,
 				4160E1C424CF4493005853AF /* ChampionDataView.swift in Sources */,
 				4160E18824CB4FBC005853AF /* ContentView.swift in Sources */,
@@ -428,6 +436,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		415C005124F9467100872CAE /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jathu/UIImageColors";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 		41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/FetchImage";
@@ -447,6 +463,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		415C005224F9467100872CAE /* UIImageColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 415C005124F9467100872CAE /* XCRemoteSwiftPackageReference "UIImageColors" */;
+			productName = UIImageColors;
+		};
 		41AF315C24F6154C00782A7B /* FetchImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41AF315B24F6154C00782A7B /* XCRemoteSwiftPackageReference "FetchImage" */;
