@@ -2,13 +2,12 @@
 //  AppDelegate.swift
 //  LeagueOfSounds
 //
-//  Created by AK on 7/24/20.
-//  Copyright © 2020 AK-Vitae. All rights reserved.
+//  Created by Akshith Ramadugu on 2/12/21.
 //
 
 import UIKit
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
