@@ -11,12 +11,14 @@ struct ContentView: View {
     // MARK: - PROPERTIES
     var championDataManager = ChampionDataManager()
     let versionTest: String = "11.3.1"
+//    let championTest: String = "Aatrox"
     
     // MARK: - BODY
     var body: some View {
         Text("Hello, world!")
             .padding()
             .onTapGesture {
+//                championDataManager.fetchChampionData(version: versionTest, champion: championTest)
                 championDataManager.fetchChampionData(version: versionTest)
             }
     }

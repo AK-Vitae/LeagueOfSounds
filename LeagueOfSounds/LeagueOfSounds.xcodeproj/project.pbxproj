@@ -14,6 +14,7 @@
 		4196A7E325D7251700C27571 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4196A7E225D7251700C27571 /* Preview Assets.xcassets */; };
 		4196A7E625D7251700C27571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4196A7E425D7251700C27571 /* LaunchScreen.storyboard */; };
 		4196A7EF25D7273900C27571 /* ChampionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A7EE25D7273900C27571 /* ChampionDataManager.swift */; };
+		4196A7F625D7321A00C27571 /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A7F525D7321A00C27571 /* ChampionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4196A7E525D7251700C27571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4196A7E725D7251700C27571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4196A7EE25D7273900C27571 /* ChampionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDataManager.swift; sourceTree = "<group>"; };
+		4196A7F525D7321A00C27571 /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		4196A7F125D7273F00C27571 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4196A7F525D7321A00C27571 /* ChampionData.swift */,
 				4196A7EE25D7273900C27571 /* ChampionDataManager.swift */,
 			);
 			path = Model;
@@ -159,6 +162,7 @@
 				4196A7EF25D7273900C27571 /* ChampionDataManager.swift in Sources */,
 				4196A7DA25D7251500C27571 /* AppDelegate.swift in Sources */,
 				4196A7DC25D7251500C27571 /* SceneDelegate.swift in Sources */,
+				4196A7F625D7321A00C27571 /* ChampionData.swift in Sources */,
 				4196A7DE25D7251500C27571 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

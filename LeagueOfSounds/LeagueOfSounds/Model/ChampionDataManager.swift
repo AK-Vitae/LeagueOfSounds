@@ -11,6 +11,8 @@ struct ChampionDataManager {
     
     // MARK: - FUNCTIONS
     func fetchChampionData(version: String) {
+        //func fetchChampionData(version: String, champion: String)
+//        let urlString = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion/\(champion).json"
         let urlString = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
         performRequest(urlString: urlString)
     }
@@ -23,22 +25,30 @@ struct ChampionDataManager {
             let session = URLSession(configuration: .default)
             
             // MARK: - GIVE THE SESSION A TASK
-            let task = session.dataTask(with: url, completionHandler: handle(data: response: error:))
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                if let safeData = data {
+                    parseJSON(championData: safeData)
+                }
+            }
             
             // MARK: - START THE TASK
             task.resume()
         }
     }
     
-    func handle(data: Data?, response: URLResponse?, error: Error?) {
-        if error != nil {
-            print(error!)
-            return
-        }
-        
-        if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString)
+    func parseJSON(championData: Data) {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(ChampionData.self, from: championData)
+            for k in decodedData.data.keys.sorted() {
+                print(k)
+            }
+        } catch {
+            print(error)
         }
     }
 }
