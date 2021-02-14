@@ -11,12 +11,13 @@ import Foundation
 struct ChampionData: Codable {
     let type: TypeEnum
     let format: String
-    let version: String
+    let version: Version
     let data: [String: Datum]
 }
 
 // MARK: - Datum
 struct Datum: Codable {
+    let version: Version
     let id, key, name, title: String
     let blurb: String
     let info: Info
@@ -59,4 +60,8 @@ enum Tag: String, Codable {
     case marksman = "Marksman"
     case support = "Support"
     case tank = "Tank"
+}
+
+enum Version: String, Codable {
+    case the1131 = "11.3.1"
 }
