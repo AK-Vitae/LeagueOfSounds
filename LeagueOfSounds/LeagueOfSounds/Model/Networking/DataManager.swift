@@ -20,6 +20,9 @@ class DataManager: ObservableObject {
     // MARK: - FETCHCHAMPIONDATA
     func fetchChampionData(version: String) {
         let urlString = "https://ddragon.leagueoflegends.com/cdn/\(version)/data/en_US/champion.json"
+        if version == "" {
+            print("Version did not load in")
+        }
         performRequest(urlString: urlString)
         
     }
@@ -56,7 +59,7 @@ class DataManager: ObservableObject {
     }
     
     // MARK: - FETCHVERSION
-    func fetchVersion() {
+    func fetchVersion(completion: @escaping (String?) -> Void) {
         let urlString = "https://ddragon.leagueoflegends.com/api/versions.json"
         // MARK: - CREATE A URL
         if let url = URL(string: urlString) {
@@ -75,6 +78,7 @@ class DataManager: ObservableObject {
                                 self.versions = decodedData
                                 self.version = decodedData[0]
                             }
+                            completion(decodedData[0])
                         } catch {
                             print(error)
                         }
@@ -85,26 +89,18 @@ class DataManager: ObservableObject {
             task.resume()
         }
     }
-    
-    func getChampAndVersion() { // Just testing to see if opertion queues would help
-        let operationQueue = OperationQueue()
-        
-        let blockOperationOne = BlockOperation {
-            print("version starting")
-            self.fetchVersion()
-            print("version ending")
-        }
-        
-        let blockOperationTwo = BlockOperation {
-            print("champion starting")
-            self.fetchChampionData(version: self.version)
-            print("champion ending")
-        }
-        
-        blockOperationTwo.addDependency(blockOperationOne)
-        operationQueue.addOperation(blockOperationOne)
-        operationQueue.addOperation(blockOperationTwo)
-        operationQueue.waitUntilAllOperationsAreFinished()
-        print("finished")
-    }
 }
+
+//                            let firstKey = Array(decodedData.data.keys)[0]
+//
+//                            let name = decodedData.data[firstKey]?.name
+//                            let title = decodedData.data[firstKey]?.title
+//                            let imageSource = decodedData.data[firstKey]?.image.full
+//                            let lore = decodedData.data[firstKey]?.lore
+//                            let tagOne = decodedData.data[firstKey]?.tags[0]
+//                            let tagTwo = decodedData.data[firstKey]?.tags[1]
+//                            let passive = decodedData.data[firstKey]?.passive.name
+//                            let qAbility = decodedData.data[firstKey]?.spells[0].name
+//                            let wAbility = decodedData.data[firstKey]?.spells[1].name
+//                            let eAbility = decodedData.data[firstKey]?.spells[2].name
+//                            let rAbility = decodedData.data[firstKey]?.spells[3].name

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,15 +14,13 @@
 		4196A7E325D7251700C27571 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4196A7E225D7251700C27571 /* Preview Assets.xcassets */; };
 		4196A7E625D7251700C27571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4196A7E425D7251700C27571 /* LaunchScreen.storyboard */; };
 		4196A7F625D7321A00C27571 /* ChampionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A7F525D7321A00C27571 /* ChampionData.swift */; };
-		4196A7FD25D7A0CC00C27571 /* ChampionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A7FC25D7A0CC00C27571 /* ChampionDataManager.swift */; };
 		4196A81425D84F0F00C27571 /* ChampionDetailedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A81325D84F0F00C27571 /* ChampionDetailedData.swift */; };
 		4196A81925D8509200C27571 /* ChampionDetailedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A81825D8509200C27571 /* ChampionDetailedDataManager.swift */; };
 		4196A81E25D8513100C27571 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A81D25D8513100C27571 /* DetailView.swift */; };
 		4196A82325D855D200C27571 /* VersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A82225D855D200C27571 /* VersionData.swift */; };
-		4196A82825D8569E00C27571 /* VersionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A82725D8569E00C27571 /* VersionDataManager.swift */; };
-		4196A82B25D8580B00C27571 /* VersionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A82A25D8580B00C27571 /* VersionTestView.swift */; };
 		4196A82E25D86CC600C27571 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A82D25D86CC600C27571 /* DataManager.swift */; };
-		4196A83525D8831900C27571 /* ChampionVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A83425D8831900C27571 /* ChampionVersionView.swift */; };
+		4196A84225D9859500C27571 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196A84125D9859500C27571 /* Person.swift */; };
+		4196A84925D9A23D00C27571 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4196A84825D9A23D00C27571 /* URLImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,15 +33,12 @@
 		4196A7E525D7251700C27571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4196A7E725D7251700C27571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4196A7F525D7321A00C27571 /* ChampionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionData.swift; sourceTree = "<group>"; };
-		4196A7FC25D7A0CC00C27571 /* ChampionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDataManager.swift; sourceTree = "<group>"; };
 		4196A81325D84F0F00C27571 /* ChampionDetailedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailedData.swift; sourceTree = "<group>"; };
 		4196A81825D8509200C27571 /* ChampionDetailedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailedDataManager.swift; sourceTree = "<group>"; };
 		4196A81D25D8513100C27571 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4196A82225D855D200C27571 /* VersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionData.swift; sourceTree = "<group>"; };
-		4196A82725D8569E00C27571 /* VersionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDataManager.swift; sourceTree = "<group>"; };
-		4196A82A25D8580B00C27571 /* VersionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTestView.swift; sourceTree = "<group>"; };
 		4196A82D25D86CC600C27571 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		4196A83425D8831900C27571 /* ChampionVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionVersionView.swift; sourceTree = "<group>"; };
+		4196A84125D9859500C27571 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4196A84925D9A23D00C27571 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +80,7 @@
 				4196A7E725D7251700C27571 /* Info.plist */,
 				4196A7DF25D7251700C27571 /* Assets.xcassets */,
 				4196A7E125D7251700C27571 /* Preview Content */,
+				4196A84125D9859500C27571 /* Person.swift */,
 			);
 			path = LeagueOfSounds;
 			sourceTree = "<group>";
@@ -110,10 +107,8 @@
 		4196A81B25D8512000C27571 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4196A82A25D8580B00C27571 /* VersionTestView.swift */,
 				4196A7DD25D7251500C27571 /* ContentView.swift */,
 				4196A81D25D8513100C27571 /* DetailView.swift */,
-				4196A83425D8831900C27571 /* ChampionVersionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -121,8 +116,6 @@
 		4196A82525D8567300C27571 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				4196A82725D8569E00C27571 /* VersionDataManager.swift */,
-				4196A7FC25D7A0CC00C27571 /* ChampionDataManager.swift */,
 				4196A81825D8509200C27571 /* ChampionDetailedDataManager.swift */,
 				4196A82D25D86CC600C27571 /* DataManager.swift */,
 			);
@@ -145,6 +138,9 @@
 			dependencies = (
 			);
 			name = LeagueOfSounds;
+			packageProductDependencies = (
+				4196A84825D9A23D00C27571 /* URLImage */,
+			);
 			productName = LeagueOfSounds;
 			productReference = 4196A7D625D7251500C27571 /* LeagueOfSounds.app */;
 			productType = "com.apple.product-type.application";
@@ -172,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 4196A7CD25D7251500C27571;
+			packageReferences = (
+				4196A84725D9A23D00C27571 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 4196A7D725D7251500C27571 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,15 +202,12 @@
 				4196A82E25D86CC600C27571 /* DataManager.swift in Sources */,
 				4196A82325D855D200C27571 /* VersionData.swift in Sources */,
 				4196A81E25D8513100C27571 /* DetailView.swift in Sources */,
+				4196A84225D9859500C27571 /* Person.swift in Sources */,
 				4196A7DC25D7251500C27571 /* SceneDelegate.swift in Sources */,
-				4196A7FD25D7A0CC00C27571 /* ChampionDataManager.swift in Sources */,
 				4196A7F625D7321A00C27571 /* ChampionData.swift in Sources */,
 				4196A81925D8509200C27571 /* ChampionDetailedDataManager.swift in Sources */,
-				4196A83525D8831900C27571 /* ChampionVersionView.swift in Sources */,
 				4196A7DE25D7251500C27571 /* ContentView.swift in Sources */,
-				4196A82825D8569E00C27571 /* VersionDataManager.swift in Sources */,
 				4196A81425D84F0F00C27571 /* ChampionDetailedData.swift in Sources */,
-				4196A82B25D8580B00C27571 /* VersionTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4196A84725D9A23D00C27571 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4196A84825D9A23D00C27571 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4196A84725D9A23D00C27571 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4196A7CE25D7251500C27571 /* Project object */;
 }

@@ -11,24 +11,31 @@ struct ContentView: View {
     //KINGFISHER PACKAGE FOR IMAGES
     
     // MARK: - PROPERTIES
-    let version: String
-    @ObservedObject var versionManager = VersionDataManager()
-    @ObservedObject var networkManager = ChampionDataManager()
+    //    let version: String
+    @ObservedObject var dataManager = DataManager()
     
     // MARK: - BODY
     var body: some View {
         NavigationView {
-            List(self.networkManager.champs, id: \.self) { champ in
-                let newName = nameChange(champName: champ)
-                NavigationLink(destination: DetailView(champName: champ, champChangedName: newName, version: version)) {
-                    let title: String = networkManager.dataDict[champ]?.title ?? "No Title"
-                    Text("\(newName), \(title). \(version)")
-                } //: NAVIGATION LINK
+            List {
+                ForEach(self.dataManager.champs, id: \.self) { champ in
+                    let champChangedName = nameChange(champName: champ)
+                    NavigationLink(destination: DetailView(champName: champ, champChangedName: champChangedName, version: dataManager.versions[0])) {
+                        let title: String = dataManager.dataDict[champ]?.title ?? "No Title"
+                        HStack {
+                            Text("\(champChangedName), \(title)")
+                        } //: HSTACK
+                        .padding(.vertical, 10)
+                    } //: NAVIGATIONLINK
+                } //: FOREACH
+            } //: LIST
+            .listStyle(InsetGroupedListStyle())
+            .onAppear {
+                dataManager.fetchVersion { v in
+                    dataManager.fetchChampionData(version: v ?? "11.3.1")
+                }
             }
-            .onTapGesture {
-                self.versionManager.fetchVersion()
-                self.networkManager.fetchChampionData(version: version)
-            }
+            .navigationBarHidden(true)
         } //: NAVIGATIONVIEW
     }
     
@@ -77,6 +84,6 @@ struct ContentView: View {
 // MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(version: "11.3.1")
+        ContentView()
     }
 }

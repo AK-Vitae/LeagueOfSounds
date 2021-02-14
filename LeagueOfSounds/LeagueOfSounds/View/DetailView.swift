@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct DetailView: View {
     let champName: String
@@ -13,9 +14,16 @@ struct DetailView: View {
     let version: String
     
     var body: some View {
-        Text(champName)
+        URLImage(url: URL(string: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/\(champName)_0.jpg")!,
+                 content: { image in
+                    image
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(minWidth: 256, idealWidth: 280, maxWidth: 360, minHeight: 256, idealHeight: 280, maxHeight: 360, alignment: .center)
+                        .cornerRadius(6)
+                 })
         Text(champChangedName)
-        Text(version)
     }
 }
 
