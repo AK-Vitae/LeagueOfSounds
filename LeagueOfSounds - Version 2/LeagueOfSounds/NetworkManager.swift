@@ -41,6 +41,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
     let decoder = JSONDecoder()
+    let defaultApiVersion = "13.4.1"
     
     // https://ddragon.leagueoflegends.com/api/versions.json
     func getApiVersions() async throws -> [String] {
@@ -67,7 +68,7 @@ class NetworkManager {
     // https://ddragon.leagueoflegends.com/cdn/13.4.1/data/en_US/champion.json
     func getChampions(for currentApiVersion: String?) async throws -> Champions {
         
-        let version = currentApiVersion ?? "13.4.1"
+        let version = currentApiVersion ?? defaultApiVersion
         
         let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/data/en_US/champion.json")
         
@@ -86,6 +87,33 @@ class NetworkManager {
             return champions
         } catch {
             throw LolError.invalidData
+        }
+    }
+    
+    // https://ddragon.leagueoflegends.com/cdn/13.4.1/img/champion/Aatrox.png
+    func downloadImage(currentApiVersion: String?, for championId: String) async -> UIImage? {
+        
+        let version = currentApiVersion ?? defaultApiVersion
+        
+        let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/img/champion/\(championId).png")
+        
+        let cacheKey = NSString(string: dataDragonEndpoint.url?.absoluteString ?? "https://ddragon.leagueoflegends.com/cdn/13.4.1/img/champion/Aatrox.png")
+        
+        if let image = cache.object(forKey: cacheKey) {
+            return image
+        }
+        
+        guard let url = dataDragonEndpoint.url else {
+            return nil
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else { return nil }
+            cache.setObject(image, forKey: cacheKey)
+            return image
+        } catch {
+            return nil
         }
     }
 }

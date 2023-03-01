@@ -17,10 +17,16 @@ struct Champions: Codable {
 }
 
 struct Champion: Codable {
-    let id, name, title: String
+    let version, id, name, title: String
     let blurb: String
     let image: Image
     let tags: [Tag]
+    
+    func getChampionSquareAsset() { // Move this to an ImageView
+        Task {
+            let image = await NetworkManager.shared.downloadImage(currentApiVersion: version, for: id)
+        }
+    }
 }
 
 struct Image: Codable {

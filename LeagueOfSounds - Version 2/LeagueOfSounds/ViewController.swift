@@ -13,29 +13,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemMint
+//        view.backgroundColor = .systemMint
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getChampions()
-    }
-    
-    func getApiVersions() {
-        Task {
-            do {
-                let apiVersions = try await NetworkManager.shared.getApiVersions()
-                if let currentApiVersion = apiVersions.first {
-                    print(currentApiVersion)
-                }
-            } catch {
-                if let gfError = error as? LolError {
-                    print(gfError.rawValue)
-                } else {
-                    print("Error")
-                }
-            }
-        }
     }
     
     func getChampions() {
@@ -45,11 +28,14 @@ class ViewController: UIViewController {
                 let apiVersions = try await NetworkManager.shared.getApiVersions()
                 
                 // 2. Use the latest Api Version to fetch all the champions
-                let champions = try await NetworkManager.shared.getChampions(for: apiVersions.first)
+                let latestApiVersion = apiVersions.first
+                let champions = try await NetworkManager.shared.getChampions(for: latestApiVersion)
                 
                 let championsArray = champions.getChampionsAsSortedArray()
                 for champion in championsArray {
                     print(champion.name)
+                    let image = await NetworkManager.shared.downloadImage(currentApiVersion: latestApiVersion, for: champion.id)
+                    view.backgroundColor = UIColor(patternImage: image!)
                 }
             } catch {
                 if let gfError = error as? LolError {
