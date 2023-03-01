@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "LoL_Icon_Flat_GOLD@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "LoL_Icon_Flat_GOLD@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "LoL_Icon_Flat_GOLD@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

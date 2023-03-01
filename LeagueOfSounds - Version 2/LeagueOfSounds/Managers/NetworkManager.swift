@@ -28,20 +28,10 @@ extension DataDragonEndpoint {
     }
 }
 
-enum LolError: String, Error {
-    case invalidURL = "This url leads to an invalid request."
-    case unableToComplete =  "Unable to complete your request. Please check your internet connection"
-    case invalidResponse = "Invalid response from the server. Please try again."
-    case invalidData = "The data from the server was invalid. Please try again"
-    case unableToFavorite = "There was an error favoriting this error. Please try again"
-    case alreadyInFavorites = "You have already favorited this user."
-}
-
 class NetworkManager {
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
     let decoder = JSONDecoder()
-    let defaultApiVersion = "13.4.1"
     
     // https://ddragon.leagueoflegends.com/api/versions.json
     func getApiVersions() async throws -> [String] {
@@ -68,7 +58,7 @@ class NetworkManager {
     // https://ddragon.leagueoflegends.com/cdn/13.4.1/data/en_US/champion.json
     func getChampions(for currentApiVersion: String?) async throws -> Champions {
         
-        let version = currentApiVersion ?? defaultApiVersion
+        let version = currentApiVersion ?? Constants.defaultApiVersion
         
         let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/data/en_US/champion.json")
         
@@ -93,7 +83,7 @@ class NetworkManager {
     // https://ddragon.leagueoflegends.com/cdn/13.4.1/img/champion/Aatrox.png
     func downloadImage(currentApiVersion: String?, for championId: String) async -> UIImage? {
         
-        let version = currentApiVersion ?? defaultApiVersion
+        let version = currentApiVersion ?? Constants.defaultApiVersion
         
         let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/img/champion/\(championId).png")
         

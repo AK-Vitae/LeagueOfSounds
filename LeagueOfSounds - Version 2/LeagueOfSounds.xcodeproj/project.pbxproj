@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03EC1FB329AFBAE800FBFDE1 /* LolError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FB229AFBAE800FBFDE1 /* LolError.swift */; };
+		03EC1FB529AFBB0400FBFDE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FB429AFBB0400FBFDE1 /* Constants.swift */; };
+		03EC1FB729AFC59500FBFDE1 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FB629AFC59500FBFDE1 /* TitleLabel.swift */; };
+		03EC1FB929AFC64400FBFDE1 /* ChampionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FB829AFC64400FBFDE1 /* ChampionImageView.swift */; };
+		03EC1FBB29AFC7D300FBFDE1 /* ChampionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBA29AFC7D300FBFDE1 /* ChampionCell.swift */; };
+		03EC1FBD29AFC82F00FBFDE1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */; };
+		03EC1FBF29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */; };
 		4163CA1E29ACEB7A00B3CEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */; };
 		4163CA2029ACEB7A00B3CEE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */; };
 		4163CA2229ACEB7A00B3CEE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA2129ACEB7A00B3CEE8 /* ViewController.swift */; };
@@ -17,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03EC1FB229AFBAE800FBFDE1 /* LolError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LolError.swift; sourceTree = "<group>"; };
+		03EC1FB429AFBB0400FBFDE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		03EC1FB629AFC59500FBFDE1 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		03EC1FB829AFC64400FBFDE1 /* ChampionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionImageView.swift; sourceTree = "<group>"; };
+		03EC1FBA29AFC7D300FBFDE1 /* ChampionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionCell.swift; sourceTree = "<group>"; };
+		03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionImageSwiftUIView.swift; sourceTree = "<group>"; };
 		4163CA1A29ACEB7A00B3CEE8 /* LeagueOfSounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeagueOfSounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +53,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03EC1FAE29AFBA7E00FBFDE1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4163CA3129AD912800B3CEE8 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		03EC1FAF29AFBA9100FBFDE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4163CA3329AD9EA500B3CEE8 /* Champions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03EC1FB129AFBABC00FBFDE1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				03EC1FB229AFBAE800FBFDE1 /* LolError.swift */,
+				03EC1FB429AFBB0400FBFDE1 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		03EC1FC029AFDE2300FBFDE1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */,
+				4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */,
+				4163CA2629ACEB7B00B3CEE8 /* Assets.xcassets */,
+				4163CA2829ACEB7B00B3CEE8 /* LaunchScreen.storyboard */,
+				4163CA2B29ACEB7B00B3CEE8 /* Info.plist */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		4163CA1129ACEB7A00B3CEE8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +109,16 @@
 		4163CA1C29ACEB7A00B3CEE8 /* LeagueOfSounds */ = {
 			isa = PBXGroup;
 			children = (
-				4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */,
-				4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */,
+				03EC1FC029AFDE2300FBFDE1 /* Support */,
+				03EC1FB129AFBABC00FBFDE1 /* Utilities */,
+				03EC1FAF29AFBA9100FBFDE1 /* Model */,
+				03EC1FAE29AFBA7E00FBFDE1 /* Managers */,
 				4163CA2129ACEB7A00B3CEE8 /* ViewController.swift */,
-				4163CA3329AD9EA500B3CEE8 /* Champions.swift */,
-				4163CA3129AD912800B3CEE8 /* NetworkManager.swift */,
-				4163CA2629ACEB7B00B3CEE8 /* Assets.xcassets */,
-				4163CA2829ACEB7B00B3CEE8 /* LaunchScreen.storyboard */,
-				4163CA2B29ACEB7B00B3CEE8 /* Info.plist */,
+				03EC1FB629AFC59500FBFDE1 /* TitleLabel.swift */,
+				03EC1FBA29AFC7D300FBFDE1 /* ChampionCell.swift */,
+				03EC1FB829AFC64400FBFDE1 /* ChampionImageView.swift */,
+				03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */,
+				03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */,
 			);
 			path = LeagueOfSounds;
 			sourceTree = "<group>";
@@ -140,9 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EC1FBD29AFC82F00FBFDE1 /* UIView+Extension.swift in Sources */,
 				4163CA3429AD9EA500B3CEE8 /* Champions.swift in Sources */,
+				03EC1FB929AFC64400FBFDE1 /* ChampionImageView.swift in Sources */,
 				4163CA3229AD912800B3CEE8 /* NetworkManager.swift in Sources */,
+				03EC1FB329AFBAE800FBFDE1 /* LolError.swift in Sources */,
 				4163CA2229ACEB7A00B3CEE8 /* ViewController.swift in Sources */,
+				03EC1FB529AFBB0400FBFDE1 /* Constants.swift in Sources */,
+				03EC1FB729AFC59500FBFDE1 /* TitleLabel.swift in Sources */,
+				03EC1FBB29AFC7D300FBFDE1 /* ChampionCell.swift in Sources */,
+				03EC1FBF29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift in Sources */,
 				4163CA1E29ACEB7A00B3CEE8 /* AppDelegate.swift in Sources */,
 				4163CA2029ACEB7A00B3CEE8 /* SceneDelegate.swift in Sources */,
 			);

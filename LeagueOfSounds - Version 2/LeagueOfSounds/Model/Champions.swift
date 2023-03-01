@@ -22,10 +22,15 @@ struct Champion: Codable {
     let image: Image
     let tags: [Tag]
     
-    func getChampionSquareAsset() { // Move this to an ImageView
+    func getChampionSquareAsset() { // TODO: Move this to an ImageView
         Task {
             let image = await NetworkManager.shared.downloadImage(currentApiVersion: version, for: id)
         }
+    }
+    
+    func getChampionSquareAssetURL() -> URL? {
+        let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/img/champion/\(id).png")
+        return dataDragonEndpoint.url
     }
 }
 
