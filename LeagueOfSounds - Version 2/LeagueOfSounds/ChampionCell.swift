@@ -13,17 +13,14 @@ class ChampionCell: UICollectionViewCell {
     let championImageView = ChampionImageView(frame: .zero)
     let championLabel   = TitleLabel(textAlignment: .center, fontSize: 16)
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     func set(champion: Champion) {
         if #available(iOS 16.0, *) {
@@ -31,11 +28,10 @@ class ChampionCell: UICollectionViewCell {
                 ChampionImageSwiftUIView(champion: champion)
             }
         } else {
-            championImageView.downloadImage(currentApiVersion: "", for: "")
+            championImageView.downloadImage(for: champion.id)
             championLabel.text = champion.name
         }
     }
-    
     
     private func configure() {
         addSubviews(championImageView, championLabel)

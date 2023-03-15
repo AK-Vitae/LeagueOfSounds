@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Champions: Codable {
+struct Champions: Codable, Hashable {
     let data: [String: Champion]
     
     lazy var championsSortedArray: [Champion] = {
@@ -15,7 +15,7 @@ struct Champions: Codable {
     }()
 }
 
-struct Champion: Codable {
+struct Champion: Codable, Hashable {
     let version, id, name, title: String
     let blurb: String
     let image: Image
@@ -27,12 +27,12 @@ struct Champion: Codable {
     }
 }
 
-struct Image: Codable {
+struct Image: Codable, Hashable {
     let full: String
     let sprite: Sprite
 }
 
-enum Sprite: String, Codable {
+enum Sprite: String, Codable, Hashable {
     case champion0PNG = "champion0.png"
     case champion1PNG = "champion1.png"
     case champion2PNG = "champion2.png"
@@ -41,7 +41,7 @@ enum Sprite: String, Codable {
     case champion5PNG = "champion5.png"
 }
 
-enum Tag: String, Codable {
+enum Tag: String, Codable, Hashable {
     case assassin = "Assassin"
     case fighter = "Fighter"
     case mage = "Mage"

@@ -8,38 +8,56 @@
 import UIKit
 import AVFoundation
 
-class MyViewController: UIViewController {
-
-    var options = ["Option 1", "Option 2", "Option 3"]
+class ChampionDetailsViewController: UIViewController {
+    
+    var champion: Champion!
+    var options = SoundOption.allValues
     var pickerView: UIPickerView!
+    var titleLabel: UILabel!
+    
+    init(champion: Champion) {
+        self.champion = champion
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    private func configureUI() {
+        // Create and add the title label
+        titleLabel = UILabel()
+        titleLabel.text = "Pick a Sound"
+        titleLabel.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleLabel)
+        
+        // Add constraints for the title label
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
         
         // Create and add the picker view to the view hierarchy
         pickerView = UIPickerView()
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pickerView)
         
-        // Add constraints to center the picker view horizontally and vertically
+        // Add constraints to center the picker view horizontally and position it below the title label
         pickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pickerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        pickerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         
         // Set the delegate and data source for the picker view
         pickerView.delegate = self
         pickerView.dataSource = self
-        
-        // Add a button to play a sound when an option is selected
-        let playSoundButton = UIButton()
-        playSoundButton.translatesAutoresizingMaskIntoConstraints = false
-        playSoundButton.setTitle("Play Sound", for: .normal)
-        playSoundButton.setTitleColor(.blue, for: .normal)
-        playSoundButton.addTarget(self, action: #selector(playSound), for: .touchUpInside)
-        view.addSubview(playSoundButton)
-        
-        // Add constraints to position the button below the picker view
-        playSoundButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        playSoundButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor, constant: 20).isActive = true
     }
     
     @objc func playSound() {
@@ -64,21 +82,22 @@ class MyViewController: UIViewController {
     }
     
     func getSoundFilename(forOption option: String) -> String? {
-        // Return the filename for the sound associated with the given option
         switch option {
-        case "Option 1":
-            return "sound1"
-        case "Option 2":
-            return "sound2"
-        case "Option 3":
-            return "sound3"
+        case "Pick":
+            return "\(champion.name)_pick"
+        case "Ban":
+            return "\(champion.name)_ban"
+        case "Taunt":
+            return "\(champion.name)_taunt"
+        case "Laugh":
+            return "\(champion.name)_laugh"
         default:
             return nil
         }
     }
 }
 
-extension MyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension ChampionDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -89,6 +108,10 @@ extension MyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return options[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        playSound()
     }
 }
 

@@ -26,10 +26,10 @@ class ChampionImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func downloadImage(currentApiVersion: String?, for champion: String) {
+    func downloadImage(currentApiVersion: String? = nil, for champion: String) {
         Task {
             image = await NetworkManager.shared.downloadImage(currentApiVersion: currentApiVersion, for: champion) ?? placeholderImage
         }
     }
-
 }
+

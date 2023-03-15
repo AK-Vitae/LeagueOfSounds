@@ -28,3 +28,12 @@ enum Images {
     static let logoNeutral = UIImage(named: "lol-logo-neutral")
     static let logoGold = UIImage(named: "lol-logo-gold")
 }
+
+enum SoundOption {
+    static let pick = "Pick"
+    static let ban = "Ban"
+    static let taunt = "Taunt"
+    static let laugh = "Laugh"
+
+    static let allValues = [pick, ban, taunt, laugh]
+}

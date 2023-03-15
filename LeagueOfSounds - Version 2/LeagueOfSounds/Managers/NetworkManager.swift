@@ -61,8 +61,19 @@ class NetworkManager {
         return champions
     }
     
-    func downloadImage(currentApiVersion: String?, for championId: String) async -> UIImage? {
-        let version = currentApiVersion ?? Constants.defaultApiVersion
+    func downloadImage(currentApiVersion: String? = nil, for championId: String) async -> UIImage? {
+        let version: String
+        if let apiVersion = currentApiVersion {
+            version = apiVersion
+        } else {
+            do {
+                let apiVersions = try await getApiVersions()
+                version = apiVersions.first ?? Constants.defaultApiVersion
+            } catch {
+                version = Constants.defaultApiVersion
+            }
+        }
+        
         let urlString = "cdn/\(version)/img/champion/\(championId).png"
         let cacheKey = NSString(string: urlString)
         
