@@ -10,10 +10,10 @@ import UIKit
 class ViewController: UIViewController {
     
     var apiVersions: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .systemMint
+        //        view.backgroundColor = .systemMint
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,17 +29,21 @@ class ViewController: UIViewController {
                 
                 // 2. Use the latest Api Version to fetch all the champions
                 let latestApiVersion = apiVersions.first
-                let champions = try await NetworkManager.shared.getChampions(for: latestApiVersion)
+                var champions = try await NetworkManager.shared.getChampions(for: latestApiVersion)
                 
-                let championsArray = champions.getChampionsAsSortedArray()
+                let championsArray = champions.championsSortedArray
                 for champion in championsArray {
                     print(champion.name)
-                    let image = await NetworkManager.shared.downloadImage(currentApiVersion: latestApiVersion, for: champion.id)
-                    view.backgroundColor = UIColor(patternImage: image!)
+                    guard let image = await NetworkManager.shared.downloadImage(currentApiVersion: latestApiVersion, for: champion.id) else {
+                        continue
+                    }
+                    DispatchQueue.main.async {
+                        self.view.backgroundColor = UIColor(patternImage: image)
+                    }
                 }
             } catch {
-                if let gfError = error as? LolError {
-                    print(gfError.rawValue)
+                if let lolError = error as? LolError {
+                    print(lolError.rawValue)
                 } else {
                     print("Error")
                 }
@@ -47,4 +51,5 @@ class ViewController: UIViewController {
         }
     }
 }
+
 

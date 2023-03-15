@@ -10,10 +10,9 @@ import Foundation
 struct Champions: Codable {
     let data: [String: Champion]
     
-    func getChampionsAsSortedArray() -> [Champion] {
-        let champions = Array(data.values).sorted { $0.name.lowercased() < $1.name.lowercased() }
-        return champions
-    }
+    lazy var championsSortedArray: [Champion] = {
+        return Array(data.values).sorted { $0.name.lowercased() < $1.name.lowercased() }
+    }()
 }
 
 struct Champion: Codable {
@@ -22,15 +21,9 @@ struct Champion: Codable {
     let image: Image
     let tags: [Tag]
     
-    func getChampionSquareAsset() { // TODO: Move this to an ImageView
-        Task {
-            let image = await NetworkManager.shared.downloadImage(currentApiVersion: version, for: id)
-        }
-    }
-    
     func getChampionSquareAssetURL() -> URL? {
-        let dataDragonEndpoint = DataDragonEndpoint(path: "cdn/\(version)/img/champion/\(id).png")
-        return dataDragonEndpoint.url
+        let urlString = "https://ddragon.leagueoflegends.com/cdn/\(version)/img/champion/\(id).png"
+        return URL(string: urlString)
     }
 }
 
@@ -56,3 +49,4 @@ enum Tag: String, Codable {
     case support = "Support"
     case tank = "Tank"
 }
+

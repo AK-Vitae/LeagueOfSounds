@@ -14,6 +14,7 @@
 		03EC1FBB29AFC7D300FBFDE1 /* ChampionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBA29AFC7D300FBFDE1 /* ChampionCell.swift */; };
 		03EC1FBD29AFC82F00FBFDE1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */; };
 		03EC1FBF29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */; };
+		03EC1FCA29C24B1B00FBFDE1 /* ChampionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC1FC929C24B1B00FBFDE1 /* ChampionDetailsViewController.swift */; };
 		4163CA1E29ACEB7A00B3CEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */; };
 		4163CA2029ACEB7A00B3CEE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */; };
 		4163CA2229ACEB7A00B3CEE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4163CA2129ACEB7A00B3CEE8 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		03EC1FBA29AFC7D300FBFDE1 /* ChampionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionCell.swift; sourceTree = "<group>"; };
 		03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionImageSwiftUIView.swift; sourceTree = "<group>"; };
+		03EC1FC929C24B1B00FBFDE1 /* ChampionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailsViewController.swift; sourceTree = "<group>"; };
 		4163CA1A29ACEB7A00B3CEE8 /* LeagueOfSounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeagueOfSounds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4163CA1D29ACEB7A00B3CEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4163CA1F29ACEB7A00B3CEE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				03EC1FB829AFC64400FBFDE1 /* ChampionImageView.swift */,
 				03EC1FBC29AFC82F00FBFDE1 /* UIView+Extension.swift */,
 				03EC1FBE29AFC8D200FBFDE1 /* ChampionImageSwiftUIView.swift */,
+				03EC1FC929C24B1B00FBFDE1 /* ChampionDetailsViewController.swift */,
 			);
 			path = LeagueOfSounds;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				03EC1FBD29AFC82F00FBFDE1 /* UIView+Extension.swift in Sources */,
 				4163CA3429AD9EA500B3CEE8 /* Champions.swift in Sources */,
+				03EC1FCA29C24B1B00FBFDE1 /* ChampionDetailsViewController.swift in Sources */,
 				03EC1FB929AFC64400FBFDE1 /* ChampionImageView.swift in Sources */,
 				4163CA3229AD912800B3CEE8 /* NetworkManager.swift in Sources */,
 				03EC1FB329AFBAE800FBFDE1 /* LolError.swift in Sources */,
